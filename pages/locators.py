@@ -8,3 +8,12 @@ class MainPageLocators:
 class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+
+
+class ProductPageLocators:
+    ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, "button.btn-add-to-basket")
+    ADD_MESSAGE = (By.CSS_SELECTOR, "#messages :first-child .alertinner")
+    ITEM_NAME = (By.CSS_SELECTOR, "ul.breadcrumb li.active")
+    PRICE = (By.CSS_SELECTOR, "p.price_color")
+    BASKET_VALUE = (By.CSS_SELECTOR, "div.basket-mini.pull-right.hidden-xs")
+    PRICE_MESSAGE = (By.CSS_SELECTOR, "#messages :last-child.alert-info .alertinner p strong")
