@@ -23,3 +23,27 @@ def test_guest_can_add_product_to_basket(browser, link):
     page.should_be_add_basket_message()
     page.should_be_message_price_equal_basket()
 
+
+@pytest.mark.skip
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser, link):
+    browser.get(link)
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_basket()
+    page.should_not_be_success_message()
+
+
+def test_guest_cant_see_success_message(browser, link):
+    browser.get(link)
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_not_be_success_message()
+
+
+@pytest.mark.skip
+def test_message_disappeared_after_adding_product_to_basket(browser, link):
+    browser.get(link)
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_basket()
+    page.should_be_disappear_message()
