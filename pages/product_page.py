@@ -1,3 +1,5 @@
+import pytest
+
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
@@ -11,9 +13,10 @@ class ProductPage(BasePage):
     def should_be_add_basket_message(self):
         message_text = self.browser.find_element(*ProductPageLocators.ADD_MESSAGE).text
         item_name = self.browser.find_element(*ProductPageLocators.ITEM_NAME).text.strip("\" ")
-        assert item_name in message_text, "Add to basket message is not presented"
+        assert item_name == message_text, "Wrong item name in add to basket message"
 
     def should_be_message_price_equal_basket(self):
-        price = self.browser.find_element(*ProductPageLocators.PRICE_MESSAGE).text
-        basket_text = self.browser.find_element(*ProductPageLocators.BASKET_VALUE).text
-        assert price in basket_text, "Incorrect sum in basket"
+        price_message = self.browser.find_element(*ProductPageLocators.PRICE_MESSAGE).text
+        price = self.browser.find_element(*ProductPageLocators.PRICE).text
+        assert price == price_message, "Wrong price in basket status message"
+
