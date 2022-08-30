@@ -1,14 +1,13 @@
-import pytest
-
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    def add_to_basket(self):
+    def add_to_basket(self, is_guest=True):
         basket_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         basket_button.click()
-        self.solve_quiz_and_get_code()
+        if is_guest:
+            self.solve_quiz_and_get_code()
 
     def should_be_add_basket_message(self):
         message_text = self.browser.find_element(*ProductPageLocators.ADD_MESSAGE).text
