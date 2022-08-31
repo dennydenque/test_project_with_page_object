@@ -11,7 +11,7 @@ class ProductPage(BasePage):
 
     def should_be_add_basket_message(self):
         message_text = self.browser.find_element(*ProductPageLocators.ADD_MESSAGE).text
-        item_name = self.browser.find_element(*ProductPageLocators.ITEM_NAME).text.strip("\" ")
+        item_name = self.browser.find_element(*ProductPageLocators.ITEM_NAME).text.strip(" ")
         assert item_name == message_text, "Wrong item name in add to basket message"
 
     def should_be_message_price_equal_basket(self):
